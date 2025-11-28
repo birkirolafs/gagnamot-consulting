@@ -1,28 +1,33 @@
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageToggle } from "@/components/LanguageToggle";
 
 const Index = () => {
+  const { t } = useLanguage();
+  
   return (
     <main className="min-h-screen bg-background">
+      <LanguageToggle />
+      
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 md:py-32">
         <div className="max-w-3xl">
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            Gagnamót
+            {t('title')}
           </h1>
           <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
-            Operations and Software Architecture Consulting in Reykjavik, Iceland
+            {t('subtitle')}
           </p>
           <p className="mb-12 text-lg text-muted-foreground max-w-2xl">
-            We deliver expert consulting in operations management and software architecture, 
-            helping businesses optimize their processes and build scalable technical solutions.
+            {t('description')}
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button asChild size="lg">
-              <a href="mailto:birkir@gagnamot.is">Contact Birkir</a>
+              <a href="mailto:birkir@gagnamot.is">{t('contactBirkir')}</a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="mailto:gyda@gagnamot.is">Contact Gyda</a>
+              <a href="mailto:gyda@gagnamot.is">{t('contactGyda')}</a>
             </Button>
           </div>
         </div>
@@ -31,14 +36,13 @@ const Index = () => {
       {/* About Section */}
       <section className="border-t border-border bg-muted/30">
         <div className="container mx-auto px-4 py-20">
-          <h2 className="mb-12 text-3xl font-bold">Our Expertise</h2>
+          <h2 className="mb-12 text-3xl font-bold">{t('expertiseTitle')}</h2>
           <div className="grid gap-12 md:grid-cols-2 max-w-4xl">
             <article>
-              <h3 className="mb-3 text-xl font-semibold">Birkir Atlason</h3>
-              <p className="mb-2 text-muted-foreground">Software Engineer</p>
+              <h3 className="mb-3 text-xl font-semibold">{t('birkirName')}</h3>
+              <p className="mb-2 text-muted-foreground">{t('birkirTitle')}</p>
               <p className="text-muted-foreground leading-relaxed">
-                Specializing in software architecture, system design, and technical consulting. 
-                Helping organizations build robust, scalable solutions that drive business value.
+                {t('birkirDescription')}
               </p>
               <a 
                 href="mailto:birkir@gagnamot.is" 
@@ -49,11 +53,10 @@ const Index = () => {
               </a>
             </article>
             <article>
-              <h3 className="mb-3 text-xl font-semibold">Gyða Björk Þorsteinsdóttir</h3>
-              <p className="mb-2 text-muted-foreground">Management Engineer</p>
+              <h3 className="mb-3 text-xl font-semibold">{t('gydaName')}</h3>
+              <p className="mb-2 text-muted-foreground">{t('gydaTitle')}</p>
               <p className="text-muted-foreground leading-relaxed">
-                Expert in operations management, process optimization, and strategic planning. 
-                Supporting companies in streamlining operations and achieving operational excellence.
+                {t('gydaDescription')}
               </p>
               <a 
                 href="mailto:gyda@gagnamot.is" 
@@ -70,10 +73,9 @@ const Index = () => {
       {/* Contact Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-2xl">
-          <h2 className="mb-6 text-3xl font-bold">Get in Touch</h2>
+          <h2 className="mb-6 text-3xl font-bold">{t('contactTitle')}</h2>
           <p className="mb-8 text-lg text-muted-foreground">
-            Based in Reykjavik, Iceland, we're ready to help with your operations and 
-            software architecture needs. Reach out to discuss how we can support your business.
+            {t('contactDescription')}
           </p>
           <div className="flex flex-col gap-3">
             <a 
@@ -98,7 +100,7 @@ const Index = () => {
       <footer className="border-t border-border">
         <div className="container mx-auto px-4 py-8">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Gagnamót. Reykjavik, Iceland.
+            © {new Date().getFullYear()} Gagnamót. {t('footerText')}
           </p>
         </div>
       </footer>
